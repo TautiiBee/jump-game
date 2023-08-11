@@ -1,0 +1,242 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv7blnd7odbkb"]
+
+[ext_resource type="PackedScene" uid="uid://caje7e1e4l6cv" path="res://player.tscn" id="1_k7p45"]
+[ext_resource type="Script" path="res://level.gd" id="1_tf5s7"]
+[ext_resource type="PackedScene" uid="uid://ds4vxpta4hl54" path="res://kill_floor.tscn" id="2_04ug2"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="3_dk632"]
+[ext_resource type="Script" path="res://kill_floor.gd" id="4_vmosj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78m73"]
+size = Vector2(320, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w72o4"]
+
+[sub_resource type="FontFile" id="FontFile_h2bm4"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/22/0 = Vector2(0, 0)
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/1/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/22/0 = Vector2(0, 0)
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/2/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/22/0 = Vector2(0, 0)
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/3/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/22/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/22/0 = Vector2(0, 0)
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/22/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/22/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/22/0/glyphs/0/size = Vector2(0, 0)
+cache/0/22/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/22/0/glyphs/0/texture_idx = -1
+cache/0/22/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/22/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/22/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/22/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/22/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/22/0/kerning_overrides/22/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_3gc1d"]
+default_font = SubResource("FontFile_h2bm4")
+default_font_size = 22
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_tf5s7")
+
+[node name="Player" parent="." instance=ExtResource("1_k7p45")]
+position = Vector2(576, 544)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(0.0179819, -0.00269756)
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(832, 496)
+scale = Vector2(0.4, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 400)
+scale = Vector2(0.4, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor3"]
+position = Vector2(0.0179819, -0.00269756)
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(384, 304)
+scale = Vector2(0.4, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4"]
+position = Vector2(0.0179819, -0.00269756)
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="Floor5" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(896, 80)
+scale = Vector2(0.4, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor5"]
+position = Vector2(0.0179819, -0.00269756)
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="Floor6" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(704, 208)
+scale = Vector2(0.4, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6"]
+shape = SubResource("RectangleShape2D_78m73")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor6"]
+position = Vector2(0.0179819, -0.00269756)
+scale = Vector2(320.048, -64.015)
+texture = SubResource("PlaceholderTexture2D_w72o4")
+
+[node name="KillFloor" parent="." instance=ExtResource("2_04ug2")]
+position = Vector2(568, 1048)
+collision_layer = 0
+script = ExtResource("4_vmosj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3gc1d")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UserInterface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 40.0
+offset_right = -121.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("3_dk632")
+
+[node name="Retry" type="ColorRect" parent="CanvasLayer/UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.619608)
+
+[node name="Label" type="Label" parent="CanvasLayer/UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -20.0
+offset_right = 88.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to Retry"
+
+[node name="todo" type="Label" parent="CanvasLayer/UserInterface"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "TODO:
+1. Coins that gives 1 point (easy)
+2. AI that \"patrols\" the platform when jumped on get 10 points (medium)
+3. Generating platforms (hard)"
+
+[connection signal="killFloorTouch" from="Player" to="." method="_on_player_kill_floor_touch"]
+[connection signal="body_entered" from="KillFloor" to="Player" method="_on_kill_floor_body_entered"]
