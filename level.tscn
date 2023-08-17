@@ -1,15 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv7blnd7odbkb"]
+[gd_scene load_steps=11 format=3 uid="uid://dv7blnd7odbkb"]
 
 [ext_resource type="PackedScene" uid="uid://caje7e1e4l6cv" path="res://player.tscn" id="1_k7p45"]
 [ext_resource type="Script" path="res://level.gd" id="1_tf5s7"]
 [ext_resource type="PackedScene" uid="uid://ds4vxpta4hl54" path="res://kill_floor.tscn" id="2_04ug2"]
 [ext_resource type="Script" path="res://ScoreLabel.gd" id="3_dk632"]
 [ext_resource type="Script" path="res://kill_floor.gd" id="4_vmosj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78m73"]
-size = Vector2(320, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w72o4"]
+[ext_resource type="PackedScene" uid="uid://c0h6ow12x2n3y" path="res://coin.tscn" id="6_10kfr"]
 
 [sub_resource type="FontFile" id="FontFile_h2bm4"]
 face_index = null
@@ -87,12 +83,76 @@ cache/0/22/0/kerning_overrides/3/0 = Vector2(0, 0)
 cache/0/22/0/kerning_overrides/4/0 = Vector2(0, 0)
 cache/0/22/0/kerning_overrides/22/0 = Vector2(0, 0)
 
-[sub_resource type="Theme" id="Theme_3gc1d"]
+[sub_resource type="Theme" id="Theme_nwv1j"]
 default_font = SubResource("FontFile_h2bm4")
 default_font_size = 22
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78m73"]
+size = Vector2(320, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w72o4"]
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_tf5s7")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nwv1j")
+
+[node name="ScoreLabel" type="Label" parent="UserInterface/UserInterface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 40.0
+offset_right = -121.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("3_dk632")
+
+[node name="Retry" type="ColorRect" parent="UserInterface/UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.619608)
+
+[node name="Label" type="Label" parent="UserInterface/UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -20.0
+offset_right = 88.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to Retry"
+
+[node name="todo" type="Label" parent="UserInterface/UserInterface"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "TODO:
+1. AI that \"patrols\" the platform when jumped on get 10 points (medium)
+2. Generating platforms (hard)"
 
 [node name="Player" parent="." instance=ExtResource("1_k7p45")]
 position = Vector2(576, 544)
@@ -178,65 +238,21 @@ position = Vector2(568, 1048)
 collision_layer = 0
 script = ExtResource("4_vmosj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Coin" parent="." instance=ExtResource("6_10kfr")]
+position = Vector2(832, 448)
 
-[node name="UserInterface" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_3gc1d")
+[node name="Coin2" parent="." instance=ExtResource("6_10kfr")]
+position = Vector2(640, 360)
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/UserInterface"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -192.0
-offset_top = 40.0
-offset_right = -121.0
-offset_bottom = 66.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Score: 0"
-script = ExtResource("3_dk632")
+[node name="Coin3" parent="." instance=ExtResource("6_10kfr")]
+position = Vector2(384, 256)
 
-[node name="Retry" type="ColorRect" parent="CanvasLayer/UserInterface"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.619608)
+[node name="Coin4" parent="." instance=ExtResource("6_10kfr")]
+position = Vector2(704, 168)
 
-[node name="Label" type="Label" parent="CanvasLayer/UserInterface/Retry"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.5
-offset_top = -20.0
-offset_right = 88.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Press Enter to Retry"
+[node name="Coin5" parent="." instance=ExtResource("6_10kfr")]
+position = Vector2(896, 48)
 
-[node name="todo" type="Label" parent="CanvasLayer/UserInterface"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-text = "TODO:
-1. Coins that gives 1 point (easy)
-2. AI that \"patrols\" the platform when jumped on get 10 points (medium)
-3. Generating platforms (hard)"
-
+[connection signal="coinTouch" from="Player" to="UserInterface/UserInterface/ScoreLabel" method="_on_player_coin_touch"]
 [connection signal="killFloorTouch" from="Player" to="." method="_on_player_kill_floor_touch"]
 [connection signal="body_entered" from="KillFloor" to="Player" method="_on_kill_floor_body_entered"]
