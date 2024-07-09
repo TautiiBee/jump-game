@@ -37,7 +37,7 @@ func die(body):
 func _on_kill_floor_body_entered(body):
 	die(body)
 	
-
-
-
-
+func _on_snack_body_entered(body):
+	if(body.name == "Player"):
+		print(body)
+	pass # Replace with function body.

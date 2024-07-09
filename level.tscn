@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv7blnd7odbkb"]
+[gd_scene load_steps=11 format=3 uid="uid://dv7blnd7odbkb"]
 
 [ext_resource type="PackedScene" uid="uid://caje7e1e4l6cv" path="res://player.tscn" id="1_k7p45"]
 [ext_resource type="Script" path="res://level.gd" id="1_tf5s7"]
 [ext_resource type="PackedScene" uid="uid://ds4vxpta4hl54" path="res://kill_floor.tscn" id="2_04ug2"]
 [ext_resource type="Script" path="res://ScoreLabel.gd" id="3_dk632"]
+[ext_resource type="PackedScene" uid="uid://dw47p63qfvbwn" path="res://snack.tscn" id="3_orf4b"]
 [ext_resource type="Script" path="res://kill_floor.gd" id="4_vmosj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78m73"]
@@ -12,9 +13,6 @@ size = Vector2(320, 64)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_w72o4"]
 
 [sub_resource type="FontFile" id="FontFile_h2bm4"]
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -173,6 +171,9 @@ position = Vector2(0.0179819, -0.00269756)
 scale = Vector2(320.048, -64.015)
 texture = SubResource("PlaceholderTexture2D_w72o4")
 
+[node name="Snack" parent="." instance=ExtResource("3_orf4b")]
+position = Vector2(850, 450)
+
 [node name="KillFloor" parent="." instance=ExtResource("2_04ug2")]
 position = Vector2(568, 1048)
 collision_layer = 0
@@ -206,6 +207,7 @@ text = "Score: 0"
 script = ExtResource("3_dk632")
 
 [node name="Retry" type="ColorRect" parent="CanvasLayer/UserInterface"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -238,5 +240,11 @@ text = "TODO:
 2. AI that \"patrols\" the platform when jumped on get 10 points (medium)
 3. Generating platforms (hard)"
 
+[node name="Label" type="Label" parent="CanvasLayer/UserInterface/todo"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="killFloorTouch" from="Player" to="." method="_on_player_kill_floor_touch"]
+[connection signal="body_entered" from="Snack" to="Player" method="_on_snack_body_entered"]
 [connection signal="body_entered" from="KillFloor" to="Player" method="_on_kill_floor_body_entered"]
